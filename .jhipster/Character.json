@@ -1,0 +1,80 @@
+{
+  "name": "Character",
+  "fields": [
+    {
+      "fieldName": "playerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "characterName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "characterClass",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "armourClass",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "initiative",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "hitPoints",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "strength",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dexterity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "constitution",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "intelligence",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "wisdom",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "charisma",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "personality",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "character",
+      "relationshipName": "user"
+    }
+  ],
+  "entityTableName": "character",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513195500"
+}
