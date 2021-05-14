@@ -41,6 +41,8 @@
     "devDatabaseType": "mongodb",
     "prodDatabaseType": "mongodb",
     "clientPackageManager": "npm",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["Character"],
+    "lastLiquibaseTimestamp": 1620935700000
   }
 }
