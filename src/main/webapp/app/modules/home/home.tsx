@@ -18,7 +18,7 @@ export const Home = (props: IHomeProp) => {
       </Col>
       <Col md="6">
         <h2>I for one welcome our new insect overlords!</h2>
-        <p className="lead">This is your homepage</p>
+        <p className="lead">This is Dungeons and Dragons Manager WebApp!</p>
         {account && account.login ? (
           <div>
             <Alert color="success">You are logged in as user {account.login}.</Alert>
@@ -32,8 +32,7 @@ export const Home = (props: IHomeProp) => {
                 {' '}
                 sign in
               </Link>
-              , you can try the default accounts:
-              <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;)
+              , you can try the default account:
               <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
             </Alert>
 
