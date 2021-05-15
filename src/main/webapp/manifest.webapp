@@ -1,25 +1,10 @@
 {
-  "name": "MyApp",
-  "short_name": "MyApp",
+  "name": "DnD Manager App",
+  "short_name": "DnD Manager App",
   "icons": [
     {
-      "src": "./content/images/jhipster_family_member_1_head-192.png",
+      "src": "./content/images/DnD-logo.png",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "./content/images/jhipster_family_member_1_head-256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "./content/images/jhipster_family_member_1_head-384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "./content/images/jhipster_family_member_1_head-512.png",
-      "sizes": "512x512",
       "type": "image/png"
     }
   ],

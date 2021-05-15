@@ -97,8 +97,8 @@ module.exports = options =>
       ),
       new webpack.HotModuleReplacementPlugin(),
       new WebpackNotifierPlugin({
-        title: 'My App',
-        contentImage: path.join(__dirname, 'logo-jhipster.png'),
+        title: 'DnD Manager App',
+        contentImage: path.join(__dirname, 'DnD-logo.png'),
       }),
     ].filter(Boolean),
   });
