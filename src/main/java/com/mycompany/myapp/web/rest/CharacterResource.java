@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
-/**
- * REST controller for managing {@link com.mycompany.myapp.domain.Character}.
- */
 @RestController
 @RequestMapping("/api")
 public class CharacterResource {
@@ -36,13 +33,6 @@ public class CharacterResource {
         this.characterRepository = characterRepository;
     }
 
-    /**
-     * {@code POST  /characters} : Create a new character.
-     *
-     * @param character the character to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new character, or with status {@code 400 (Bad Request)} if the character has already an ID.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
     @PostMapping("/characters")
     public ResponseEntity<Character> createCharacter(@RequestBody Character character) throws URISyntaxException {
         log.debug("REST request to save Character : {}", character);
@@ -56,16 +46,6 @@ public class CharacterResource {
             .body(result);
     }
 
-    /**
-     * {@code PUT  /characters/:id} : Updates an existing character.
-     *
-     * @param id the id of the character to save.
-     * @param character the character to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated character,
-     * or with status {@code 400 (Bad Request)} if the character is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the character couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
     @PutMapping("/characters/{id}")
     public ResponseEntity<Character> updateCharacter(
         @PathVariable(value = "id", required = false) final String id,
@@ -90,109 +70,12 @@ public class CharacterResource {
             .body(result);
     }
 
-    /**
-     * {@code PATCH  /characters/:id} : Partial updates given fields of an existing character, field will ignore if it is null
-     *
-     * @param id the id of the character to save.
-     * @param character the character to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated character,
-     * or with status {@code 400 (Bad Request)} if the character is not valid,
-     * or with status {@code 404 (Not Found)} if the character is not found,
-     * or with status {@code 500 (Internal Server Error)} if the character couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
-    @PatchMapping(value = "/characters/{id}", consumes = "application/merge-patch+json")
-    public ResponseEntity<Character> partialUpdateCharacter(
-        @PathVariable(value = "id", required = false) final String id,
-        @RequestBody Character character
-    ) throws URISyntaxException {
-        log.debug("REST request to partial update Character partially : {}, {}", id, character);
-        if (character.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        if (!Objects.equals(id, character.getId())) {
-            throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
-        }
-
-        if (!characterRepository.existsById(id)) {
-            throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
-        }
-
-        Optional<Character> result = characterRepository
-            .findById(character.getId())
-            .map(
-                existingCharacter -> {
-                    if (character.getPlayerName() != null) {
-                        existingCharacter.setPlayerName(character.getPlayerName());
-                    }
-                    if (character.getCharacterName() != null) {
-                        existingCharacter.setCharacterName(character.getCharacterName());
-                    }
-                    if (character.getCharacterClass() != null) {
-                        existingCharacter.setCharacterClass(character.getCharacterClass());
-                    }
-                    if (character.getLevel() != null) {
-                        existingCharacter.setLevel(character.getLevel());
-                    }
-                    if (character.getArmourClass() != null) {
-                        existingCharacter.setArmourClass(character.getArmourClass());
-                    }
-                    if (character.getInitiative() != null) {
-                        existingCharacter.setInitiative(character.getInitiative());
-                    }
-                    if (character.getHitPoints() != null) {
-                        existingCharacter.setHitPoints(character.getHitPoints());
-                    }
-                    if (character.getStrength() != null) {
-                        existingCharacter.setStrength(character.getStrength());
-                    }
-                    if (character.getDexterity() != null) {
-                        existingCharacter.setDexterity(character.getDexterity());
-                    }
-                    if (character.getConstitution() != null) {
-                        existingCharacter.setConstitution(character.getConstitution());
-                    }
-                    if (character.getIntelligence() != null) {
-                        existingCharacter.setIntelligence(character.getIntelligence());
-                    }
-                    if (character.getWisdom() != null) {
-                        existingCharacter.setWisdom(character.getWisdom());
-                    }
-                    if (character.getCharisma() != null) {
-                        existingCharacter.setCharisma(character.getCharisma());
-                    }
-                    if (character.getPersonality() != null) {
-                        existingCharacter.setPersonality(character.getPersonality());
-                    }
-
-                    return existingCharacter;
-                }
-            )
-            .map(characterRepository::save);
-
-        return ResponseUtil.wrapOrNotFound(
-            result,
-            HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, character.getId())
-        );
-    }
-
-    /**
-     * {@code GET  /characters} : get all the characters.
-     *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of characters in body.
-     */
     @GetMapping("/characters")
     public List<Character> getAllCharacters() {
         log.debug("REST request to get all Characters");
         return characterRepository.findAll();
     }
 
-    /**
-     * {@code GET  /characters/:id} : get the "id" character.
-     *
-     * @param id the id of the character to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the character, or with status {@code 404 (Not Found)}.
-     */
     @GetMapping("/characters/{id}")
     public ResponseEntity<Character> getCharacter(@PathVariable String id) {
         log.debug("REST request to get Character : {}", id);
@@ -200,12 +83,6 @@ public class CharacterResource {
         return ResponseUtil.wrapOrNotFound(character);
     }
 
-    /**
-     * {@code DELETE  /characters/:id} : delete the "id" character.
-     *
-     * @param id the id of the character to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-     */
     @DeleteMapping("/characters/{id}")
     public ResponseEntity<Void> deleteCharacter(@PathVariable String id) {
         log.debug("REST request to delete Character : {}", id);
