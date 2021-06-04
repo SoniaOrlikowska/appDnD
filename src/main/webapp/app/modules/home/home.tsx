@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { Row, Col, Alert } from 'reactstrap';
+import { Row, Col, Alert, Button } from 'reactstrap';
 
 export type IHomeProp = StateProps;
 
@@ -21,7 +21,9 @@ export const Home = (props: IHomeProp) => {
         <p className="lead">This is Dungeons and Dragons Manager WebApp!</p>
         {account && account.login ? (
           <div>
-            <Alert color="success">You are logged in as user {account.login}.</Alert>
+            <Button color="primary" href="/character" block>
+              primary
+            </Button>{' '}
           </div>
         ) : (
           <div>
