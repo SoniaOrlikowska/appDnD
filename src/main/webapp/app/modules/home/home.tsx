@@ -22,7 +22,13 @@ export const Home = (props: IHomeProp) => {
         {account && account.login ? (
           <div>
             <Button color="primary" href="/character" block>
-              primary
+              Characters menu
+            </Button>{' '}
+            <Button color="primary" href="/account/settings" block>
+              Settings
+            </Button>{' '}
+            <Button color="primary" href="/logout" block>
+              Logout
             </Button>{' '}
           </div>
         ) : (
@@ -34,8 +40,9 @@ export const Home = (props: IHomeProp) => {
                 {' '}
                 sign in
               </Link>
-              , you can try the default account:
-              <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
+              , you can try the default accounts:
+              <br />- User (login=&quot;user&quot; and password=&quot;user&quot;),
+              <br />- Admin (login=&quot;admin&quot; and password=&quot;admin&quot;).
             </Alert>
 
             <Alert color="warning">

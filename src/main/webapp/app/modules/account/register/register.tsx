@@ -102,8 +102,9 @@ export const RegisterPage = (props: IRegisterProps) => {
             <span>If you want to</span>
             <a className="alert-link"> sign in</a>
             <span>
-              , you can try the default account:
-              <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
+              , you can try the default accounts:
+              <br />- User (login=&quot;user&quot; and password=&quot;user&quot;),
+              <br />- Admin (login=&quot;admin&quot; and password=&quot;admin&quot;).
             </span>
           </Alert>
         </Col>
